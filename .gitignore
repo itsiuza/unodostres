@@ -1,0 +1,7 @@
+node_modules/
+.env
+.DS_Store
+uni_files/
+knowledge-tree.json
+visualize_tree.js
+knowledge_tree_viz.png

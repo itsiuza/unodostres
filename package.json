@@ -1,0 +1,24 @@
+{
+  "name": "unodostres",
+  "version": "1.0.0",
+  "description": "Hackathon 2026 Team UnoDosTres",
+  "homepage": "https://github.com/itsiuza/unodostres#readme",
+  "bugs": {
+    "url": "https://github.com/itsiuza/unodostres/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsiuza/unodostres.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node": "^22.22.3",
+    "pdf-parse": "^2.4.5"
+  }
+}
