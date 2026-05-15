@@ -1,0 +1,12 @@
+{
+    "name":{ 
+        "first_name":"",
+        "last_name":""
+    },
+    "birthdate":"",
+    "address":"",
+    "contact":{
+            "email":"",
+            "phone":""
+    }
+}
