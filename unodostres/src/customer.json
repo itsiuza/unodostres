@@ -1,12 +1,40 @@
 {
-    "name":{ 
-        "first_name":"",
-        "last_name":""
+    "customerId": "CUST_998877",
+    "name": { 
+        "first_name": "Ion",
+        "last_name": "Popescu"
     },
-    "birthdate":"",
-    "address":"",
-    "contact":{
-            "email":"",
-            "phone":""
-    }
+    "birthdate": "1985-06-15",
+    "address": "Strada Victoriei nr. 10, București",
+    "contact": {
+        "email": "ion.popescu@email.com",
+        "phone": "+40 722 123 456"
+    },
+    "account": {
+        "type": "GeniusCont",
+        "currency": "RON",
+        "balance": 15420.50,
+        "status": "Active"
+    },
+    "cards": [
+        {
+            "type": "Visa Classic",
+            "last4": "4321",
+            "status": "Active"
+        }
+    ],
+    "transactions": [
+        {
+            "date": "2026-05-10",
+            "description": "Supermarket ABC",
+            "amount": -150.20,
+            "category": "Shopping"
+        },
+        {
+            "date": "2026-05-12",
+            "description": "Salariu UniCredit",
+            "amount": 5000.00,
+            "category": "Income"
+        }
+    ]
 }

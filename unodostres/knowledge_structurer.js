@@ -12,18 +12,35 @@ const OUTPUT_PATH = path.join(__dirname, 'optimized-knowledge-base.json');
 const STOP_WORDS = new Set(['de', 'la', 'un', 'o', 'și', 'cu', 'în', 'din', 'pe', 'că', 'să', 'le', 'îi', 'al', 'ai', 'ale', 'lor']);
 const VERB_ENDINGS = ['escu', 'ează', 'ează', 'ă', 'esc', 'im', 'iți', 'esc', 'at', 'ut', 'it'];
 
+// Banking Power Words (highest priority)
+const BANKING_POWER_WORDS = new Set([
+    'comision', 'dobândă', 'credit', 'cont', 'card', 'plată', 'transfer', 
+    'sold', 'extras', 'ipotecar', 'refinanțare', 'administrare', 'penalizare',
+    'comisioane', 'dobânzi', 'credite', 'plăți', 'asigurare', 'venit'
+]);
+
 class SyntacticNode {
     constructor(word, role = 'unknown') {
         this.word = word;
         this.lemma = this.lemmatize(word);
-        this.role = role; // Subject, Verb, Object, Modifier
+        this.role = role; 
+        this.value = this.calculateValue(this.lemma, role);
         this.children = [];
+    }
+
+    calculateValue(lemma, role) {
+        if (BANKING_POWER_WORDS.has(lemma)) return 1.0;
+        if (role === 'action') return 0.8;
+        if (role === 'entity') return 0.7;
+        if (role === 'modifier') return 0.4;
+        if (role === 'separator') return 0.1;
+        return 0.3;
     }
 
     // Very basic Romanian lemmatizer/stemmer logic
     lemmatize(word) {
         let lemma = word.toLowerCase().replace(/[.,!?;:]/g, '');
-        // Basic reduction of plural/inflected forms (very simplified for banking context)
+        // Basic reduction of plural/inflected forms
         if (lemma.endsWith('ile') || lemma.endsWith('ilor')) return lemma.slice(0, -3);
         if (lemma.endsWith('ul') || lemma.endsWith('ea')) return lemma.slice(0, -2);
         return lemma;
